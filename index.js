@@ -22,6 +22,23 @@ console.log(recreateArr(notification)); //Computer:{source: 'Computer', text: 'H
                                     //Server:{source: 'Server', text: 'Attention', date: '07.06.2024'}
                                     //Telephone:{source: 'Telephone', text: 'Hello', date: '05.06.2024'}
 /////////////////////////////////////////
+const recreateArr2 = (arr) => {
+  const key_value = (cur) => {
+    const { source, ...rest } = cur;
+    return [cur.source, rest];
+  };
+  return Object.fromEntries(arr.map(key_value));
+};
+
+const notification2 = [
+  { source: "Telephone", text: "Hello", date: "05.06.2024" },
+  { source: "Computer", text: "How are you", date: "06.06.2024" },
+  { source: "Server", text: "Attention", date: "07.06.2024" },
+];
+console.log(recreateArr2(notification2)); //Computer:{ text: 'How are you', date: '06.06.2024'}
+                                        //Server:{ text: 'Attention', date: '07.06.2024'}
+                                         //Telephone:{ text: 'Hello', date: '05.06.2024'}
+////////////////////////////////////////
 const groupProduct = (arr) => {
   const groupByCategory = arr.reduce((group, product) => {
     const {type} = product;
