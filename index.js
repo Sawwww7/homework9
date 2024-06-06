@@ -11,16 +11,16 @@ const number = (cur) => {
 const array1 = [1, 2, 3, 4, 5, 5, 3, 3, 5, 20, 37, 41, 83, 97, 255];
 console.log(primeNumber(array1)); //[2, 3, 5, 5, 3, 3, 5, 37, 41, 83, 97]
 ////////////////////////////////////////////////////////////////////
-const recreateArr = (arr) => {
-  const message = Object.fromEntries(arr.map((cur) => [cur.source, cur]));
-  return message;
-};
-const students = [
+const recreateArr = (arr) =>Object.fromEntries(arr.map((cur) => [cur.source, cur]));
+
+const notification = [
   { source: "Telephone", text: "Hello", date: "05.06.2024" },
   { source: "Computer", text: "How are you", date: "06.06.2024" },
   { source: "Server", text: "Attention", date: "07.06.2024" },
 ];
-console.log(recreateArr(students));
+console.log(recreateArr(notification)); //Computer:{source: 'Computer', text: 'How are you', date: '06.06.2024'}
+                                    //Server:{source: 'Server', text: 'Attention', date: '07.06.2024'}
+                                    //Telephone:{source: 'Telephone', text: 'Hello', date: '05.06.2024'}
 /////////////////////////////////////////
 const groupProduct = (arr) => {
   const groupByCategory = arr.reduce((group, product) => {
